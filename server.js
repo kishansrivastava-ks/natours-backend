@@ -56,7 +56,7 @@ const app = require('./app');
 // console.log(process.env);
 
 // 🔴 starting the server
-const port = process.env.PORT;
+const port = process.env.PORT; // this is mandatory for heroku
 const server = app.listen(port, () => {
   console.log(`app running on port ${port}`);
 });
