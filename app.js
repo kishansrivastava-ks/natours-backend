@@ -9,6 +9,7 @@ const hpp = require('hpp');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const cookieParser = require('cookie-parser');
 const compresssion = require('compression');
+const cors = require('cors');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -26,6 +27,16 @@ app.set('view engine', 'pug'); // this pug is a template engine which is used to
 app.set('views', path.join(__dirname, 'views'));
 
 // 🔴 GLOBAL MIDDLEWARES
+// implement CORS
+app.use(cors());
+// allowing access to a specific origins
+// app.use(
+//   cors({
+//     origin: 'https://www.natours.com',
+//   }),
+// );
+
+app.options('*', cors()); // for all routes
 
 // app.use(express.static(`${__dirname}/public`));
 app.use(express.static(path.join(__dirname, 'public')));
