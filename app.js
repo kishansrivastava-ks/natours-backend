@@ -8,6 +8,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const cookieParser = require('cookie-parser');
+const compresssion = require('compression');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -41,7 +42,7 @@ app.use((req, res, next) => {
   next();
 });
 
-console.log(process.env.NODE_ENV);
+// console.log(process.env.NODE_ENV);
 
 // DEVELOPMENT LOGGING
 if (process.env.NODE_ENV === 'development') {
@@ -99,6 +100,8 @@ app.use(
 //   console.log('hellow from the middleware 🔥');
 //   next();
 // });
+
+app.use(compresssion()); // this will compress all the text send as a response
 
 // test middleware
 app.use((req, res, next) => {

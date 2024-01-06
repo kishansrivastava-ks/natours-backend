@@ -8,7 +8,8 @@ export const login = async (email, password) => {
     const res = await axios({
       // axios returns a promise
       method: 'POST',
-      url: 'http://localhost:8000/api/v1/users/login',
+      // url: 'http://localhost:8000/api/v1/users/login',
+      url: '/api/v1/users/login', // since the API and the wesbite are hosted on the same url, this works fine
       data: {
         // this is what is expected in the request body while logging in
         email,
@@ -33,7 +34,7 @@ export const logout = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: 'http://localhost:8000/api/v1/users/logout',
+      url: '/api/v1/users/logout',
     });
     if (res.data.status === 'success') location.reload(true); // this would implement a reload from the server and not from the cache
   } catch (err) {

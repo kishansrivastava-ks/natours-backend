@@ -28,7 +28,7 @@ mongoose
   .then(() => {
     // the connect would return a promise which is handled here
     // this also receives the connection object
-    console.log('DB connection successful');
+    // console.log('DB connection successful');
   });
 
 // new document created out of the Tour model

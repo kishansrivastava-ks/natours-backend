@@ -123,7 +123,7 @@ userSchema.methods.createPasswordResetToken = function () {
     .digest('hex');
 
   // eslint-disable-next-line no-console
-  console.log({ resetToken }, this.passwordResetToken);
+  // console.log({ resetToken }, this.passwordResetToken);
 
   this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
 
